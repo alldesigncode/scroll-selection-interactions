@@ -1,0 +1,146 @@
+:root {
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-xxl: 6rem;
+
+  --font-xl: 12rem;
+  --item-size: calc(182.4px - var(--space-xs));
+
+  --c-white: #fff;
+  --c-white-1: #fafafa;
+  --c-dark: #020202;
+  --c-dark-1: #040404;
+  --c-dark-2: #101010;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  font-family: "Source Sans Pro", system-ui, sans-serif;
+  overscroll-behavior: none;
+  background-image: linear-gradient(to left, var(--c-dark-1), var(--c-dark-2));
+  overflow: hidden;
+}
+
+.heading {
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > .heading-text {
+    color: var(--c-white-1);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 12px;
+  }
+
+  & > svg {
+    fill: var(--c-white-1);
+    width: 35px;
+    height: 35px;
+    animation-name: bounce;
+    animation-timing-function: ease;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: auto;
+  padding: var(--space-sm);
+  height: 100vh;
+  overflow: height;
+}
+
+.picture {
+  position: absolute;
+  block-size: 400px;
+  inline-size: 600px;
+  overflow: hidden;
+  left: 14%;
+  top: 54%;
+  z-index: -1;
+
+  & img {
+    position: absolute;
+    transform: translate3d(0px, 500px, 0px) scale(1.5);
+  }
+}
+
+.content {
+  block-size: 100%;
+}
+
+.scroll-content {
+  position: relative;
+  block-size: auto;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.item-container-full {
+  position: absolute;
+  right: 0;
+  height: var(--item-size);
+  overflow: hidden;
+}
+
+.item {
+  z-index: 100;
+  line-height: 0.95;
+}
+
+.title-full {
+  color: var(--c-white);
+}
+
+.title {
+  font-size: var(--font-xl);
+  text-transform: uppercase;
+  font-family: "Anton";
+  text-align: right;
+}
+
+.title-transparent {
+  -webkit-text-stroke: 1px var(--c-white);
+  color: transparent;
+}
+
+img {
+  inline-size: 100%;
+  block-size: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
